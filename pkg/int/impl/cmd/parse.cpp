@@ -1,5 +1,6 @@
 #include <iostream>
 #include <tuple>
+#include <exception>
 #include <boost/program_options.hpp>
 
 namespace bpo = boost::program_options;
@@ -35,8 +36,9 @@ namespace cmd
 				vm["class"].as<std::string>()
 			};
 		}
-		catch (...)
+		catch (std::exception& e)
 		{
+			std::cout << e.what() << "\n";
 			std::cout << desc;
 			std::exit(1);
 		}

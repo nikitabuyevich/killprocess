@@ -5,6 +5,7 @@
 #include <iostream>
 #include <tuple>
 #include <string>
+#include <exception>
 
 // Boost
 #include <boost/program_options.hpp>
