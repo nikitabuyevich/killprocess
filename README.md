@@ -1,6 +1,6 @@
-## killclass
+## killprocess
 
-Kill all processes that match a specified class name.
+Kill all processes by filename and class name.
 
 Usage:
 
@@ -11,6 +11,6 @@ Usage:
   
 Example:
 ```bash
-killclass.exe -c ConsoleWindowClass
+killprocess.exe -c ConsoleWindowClass
 ```
 

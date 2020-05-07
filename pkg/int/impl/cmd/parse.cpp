@@ -1,5 +1,5 @@
+#include <cmd/parse.h>
 #include <iostream>
-#include <tuple>
 #include <exception>
 #include <boost/program_options.hpp>
 
@@ -7,17 +7,20 @@ namespace bpo = boost::program_options;
 
 namespace cmd
 {
-	std::string Parse(int argc, char** argv)
+	Arg Parse(int argc, char** argv)
 	{
 		bpo::options_description
 			desc
-			("killclass: Kill all processes that match a specified class name."
+			("killprocess: Kill all processes by filename and class name."
 			 "\nUsage");
 		try
 		{
 			desc.add_options()
 				("help,h", "Display usage.")
-				("class,c",
+				("filename,f",
+					bpo::value<std::string>()->value_name("string"),
+					"Filename to kill. e.g., \"notepad.exe\"")
+				("className,c",
 					bpo::value<std::string>()->value_name("string"),
 					"Process class name to kill. e.g., \"ConsoleWindowClass\"");
 
@@ -26,14 +29,15 @@ namespace cmd
 
 			if (argc == 1 ||
 				vm.count("help") ||
-				!(vm.count("class")))
+				!(vm.count("className") && vm.count("filename")))
 			{
 				std::cout << desc;
 				std::exit(1);
 			}
 
 			return {
-				vm["class"].as<std::string>()
+				.filename = vm["filename"].as<std::string>(),
+				.className = vm["className"].as<std::string>(),
 			};
 		}
 		catch (std::exception& e)

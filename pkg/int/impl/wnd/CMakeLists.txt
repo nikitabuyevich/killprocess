@@ -4,7 +4,7 @@ project(wnd
 
 # Library files
 set(SRC_LIST "process.cpp")
-set(HDR_LIST "${killclass_SOURCE_DIR}/pkg/int/inc/wnd/process.h")
+set(HDR_LIST "${killprocess_SOURCE_DIR}/pkg/int/inc/wnd/process.h")
 
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(wnd ${SRC_LIST} ${HDR_LIST})
@@ -13,7 +13,7 @@ add_library(wnd ${SRC_LIST} ${HDR_LIST})
 target_precompile_headers(wnd PRIVATE pch.h)
 
 # We need this directory, and users of our library will need it too
-target_include_directories(wnd PUBLIC "${killclass_SOURCE_DIR}/pkg/int/inc")
+target_include_directories(wnd PUBLIC "${killprocess_SOURCE_DIR}/pkg/int/inc")
 
 # All users of this library will need at least C++17
 target_compile_features(wnd PUBLIC cxx_std_17)

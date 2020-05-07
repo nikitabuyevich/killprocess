@@ -3,7 +3,8 @@
 
 int main(int argc, char** argv)
 {
-	auto className = cmd::Parse(argc, argv);
-	wnd::KillProcessByClassName(className);
+	const auto arg = cmd::Parse(argc, argv);
+	wnd::KillProcessByName(arg.filename);
+	wnd::KillProcessByClassName(arg.className);
 	return 0;
 }

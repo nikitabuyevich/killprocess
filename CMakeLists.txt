@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(killclass
+project(killprocess
         VERSION 1.0
-        DESCRIPTION "Kill all processes that match a specified class name."
+        DESCRIPTION "Kill all processes by filename and class name."
         LANGUAGES CXX)
 
 # Only do these if this is the main project, and not if it is included through add_subdirectory

@@ -4,7 +4,7 @@ project(cmd
 
 # Library files
 set(SRC_LIST "parse.cpp")
-set(HDR_LIST "${killclass_SOURCE_DIR}/pkg/int/inc/cmd/parse.h")
+set(HDR_LIST "${killprocess_SOURCE_DIR}/pkg/int/inc/cmd/parse.h")
 
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(cmd ${SRC_LIST} ${HDR_LIST})
@@ -13,7 +13,7 @@ add_library(cmd ${SRC_LIST} ${HDR_LIST})
 target_precompile_headers(cmd PRIVATE pch.h)
 
 # We need this directory, and users of our library will need it too
-target_include_directories(cmd PUBLIC "${killclass_SOURCE_DIR}/pkg/int/inc")
+target_include_directories(cmd PUBLIC "${killprocess_SOURCE_DIR}/pkg/int/inc")
 
 # This depends on (header only) boost
 target_link_libraries(cmd PRIVATE Boost::boost Boost::program_options)

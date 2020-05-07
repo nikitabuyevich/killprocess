@@ -6,6 +6,8 @@
 // windows specific functions.
 namespace wnd
 {
+	// Kill any running processes that match the filename.
+	void KillProcessByName(std::string_view filename);
 	// Kill any running processes that match class name s.
 	void KillProcessByClassName(std::string_view s);
 }
