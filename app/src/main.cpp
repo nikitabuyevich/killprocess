@@ -4,7 +4,13 @@
 int main(int argc, char** argv)
 {
 	const auto arg = cmd::Parse(argc, argv);
-	wnd::KillProcessByName(arg.filename);
-	wnd::KillProcessByClassName(arg.className);
+	if (!arg.filename.empty())
+	{
+		wnd::KillProcessByName(arg.filename);
+	}
+	if (!arg.className.empty())
+	{
+		wnd::KillProcessByClassName(arg.className);
+	}
 	return 0;
 }

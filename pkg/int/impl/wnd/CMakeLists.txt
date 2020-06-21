@@ -10,7 +10,7 @@ set(HDR_LIST "${killprocess_SOURCE_DIR}/pkg/int/inc/wnd/process.h")
 add_library(wnd ${SRC_LIST} ${HDR_LIST})
 
 # Add precompiled headers
-target_precompile_headers(wnd PRIVATE pch.h)
+#target_precompile_headers(wnd PRIVATE pch.h)
 
 # We need this directory, and users of our library will need it too
 target_include_directories(wnd PUBLIC "${killprocess_SOURCE_DIR}/pkg/int/inc")

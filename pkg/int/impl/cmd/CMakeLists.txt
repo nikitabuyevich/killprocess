@@ -10,7 +10,7 @@ set(HDR_LIST "${killprocess_SOURCE_DIR}/pkg/int/inc/cmd/parse.h")
 add_library(cmd ${SRC_LIST} ${HDR_LIST})
 
 # Add precompiled headers
-target_precompile_headers(cmd PRIVATE pch.h)
+#target_precompile_headers(cmd PRIVATE p&&ch.h)
 
 # We need this directory, and users of our library will need it too
 target_include_directories(cmd PUBLIC "${killprocess_SOURCE_DIR}/pkg/int/inc")

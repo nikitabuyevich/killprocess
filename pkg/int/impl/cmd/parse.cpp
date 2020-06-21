@@ -29,15 +29,25 @@ namespace cmd
 
 			if (argc == 1 ||
 				vm.count("help") ||
-				!(vm.count("className") && vm.count("filename")))
+				!(vm.count("className") || vm.count("filename")))
 			{
 				std::cout << desc;
 				std::exit(1);
 			}
 
+			std::string filename;
+			std::string className;
+			if (vm.count("filename"))
+			{
+				filename = vm["filename"].as<std::string>();
+			}
+			if (vm.count("className"))
+			{
+				className = vm["className"].as<std::string>();
+			}
 			return {
-				.filename = vm["filename"].as<std::string>(),
-				.className = vm["className"].as<std::string>(),
+				.filename = filename,
+				.className = className
 			};
 		}
 		catch (std::exception& e)
